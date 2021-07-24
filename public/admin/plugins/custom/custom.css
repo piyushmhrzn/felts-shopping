@@ -1,0 +1,53 @@
+.nav-pills {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+
+.nav-pills .nav-item{
+    margin: 5px 0;
+}
+
+.nav-pills .nav-item .nav-link.active, 
+.nav-pills .nav-item .nav-link.active:focus, 
+.nav-pills .nav-item .nav-link.active:hover {
+    background-color: #DE2768;
+    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(255 152 0 / 40%);
+    color: #fff;
+}
+
+.nav-pills .nav-item .nav-link {
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 100px;
+    text-align: center;
+    color: #555;
+    transition: all .3s;
+    border-radius: 30px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.nav-pills .nav-item i {
+    display: block;
+    font-size: 30px;
+    padding: 5px 0;
+}
+
+a .material-icons {
+    vertical-align: middle;
+}
+
+@media (max-width: 333px) {
+    .nav-tabs-navigation .nav-tabs-wrapper #nav-tabs-title{
+        display: none;
+    }
+    
+}
+
+
+
