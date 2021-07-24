@@ -1,2 +1,2 @@
 # felts-shopping
-Felts Shopping Website
+Felts Shopping Website with laravel framework
