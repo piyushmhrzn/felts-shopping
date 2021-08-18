@@ -16,6 +16,7 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('company_name');
+            $table->integer('shippingCharge')->default('150');
             $table->text('meta_description')->nullable();
 
             $table->text('favicon')->nullable();

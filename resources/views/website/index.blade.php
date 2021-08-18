@@ -6,8 +6,8 @@
     <div id="wrapper">
         <div class="slider-wrapper">
             <div id="mainSlider" class="nivoSlider">
-                <img src="{{url('/uploads/Settings/FirstBanner/'.$setting->homepage_banner1)}}" alt="main slider" title="#htmlcaption"/>
-                <img src="{{url('/uploads/Settings/SecondBanner/'.$setting->homepage_banner2)}}" alt="main slider" title="#htmlcaption2"/>
+                <img src="{{url('/uploads/Settings/FirstBanner/'.$setting->homepage_banner1)}}" alt="main slider" title="#htmlcaption" />
+                <img src="{{url('/uploads/Settings/SecondBanner/'.$setting->homepage_banner2)}}" alt="main slider" title="#htmlcaption2" />
             </div>
             <div id="htmlcaption" class="nivo-html-caption slider-caption">
                 <div class="container">
@@ -17,7 +17,7 @@
                             <h1>{{$setting->main_heading1}}</h1>
                         </div>
                         <div class="animated slider-btn fadeInUpBig">
-                            <a class="shop-btn" href="{{ route('our-shop') }}">Shop now</a>
+                            <a class="shop-btn" href="{{ route('our-products') }}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -34,12 +34,12 @@
                             <p>{{$setting->description2}}</p>
                         </div>
                         <div class="animated slider-btn fadeInUpBig">
-                            <a class="shop-btn" href="{{ route('our-shop') }}">Shop now</a>
+                            <a class="shop-btn" href="{{ route('our-products') }}">Shop now</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>							
+        </div>
     </div>
 </div>
 <!-- slider section end -->
@@ -61,42 +61,42 @@
                         <div class="splide" id="card-slider">
                             <div class="splide__track" style="margin:25px">
                                 <ul class="splide__list">
-                                @isset($featuredProducts)
-                                    @foreach($featuredProducts as $product)
-                                    <li class="splide__slide">
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img embed-responsive embed-responsive-4by3">
-                                                    <a href="{{ route('single-product-view',[$product->slug]) }}">
-                                                        <img src="{{ asset('/uploads/Products/'.$product->image) }}" alt="Featured" class="embed-responsive-item img-responsive" style="object-fit:cover"/>
-                                                    </a>
-                                                    <div class="actions-btn">
-                                                        <a href="#"><i class="mdi mdi-cart"></i></a>
-                                                        <a href="{{ route('single-product-view',[$product->slug]) }}"><i class="mdi mdi-eye"></i></a>
-                                                        <a href="#"><i class="mdi mdi-heart"></i></a>
+                                    @isset($featuredProducts)
+                                        @foreach($featuredProducts as $product)
+                                        <li class="splide__slide">
+                                            <div class="col-md-12">
+                                                <div class="single-product">
+                                                    <div class="product-img embed-responsive embed-responsive-4by3">
+                                                        <a href="{{ route('single-product-view',[$product->slug]) }}">
+                                                            <img src="{{ asset('/uploads/Products/'.$product->image) }}" alt="Featured" class="embed-responsive-item img-responsive" style="object-fit:cover" />
+                                                        </a>
+                                                        <div class="actions-btn">
+                                                            <a href="{{ route('add-to-cart',[$product->id]) }}"><i class="mdi mdi-cart"></i></a>
+                                                            <a href="{{ route('single-product-view',[$product->slug]) }}"><i class="mdi mdi-eye"></i></a>
+                                                            <a href="{{ route('add-to-wishlist',[$product->id]) }}"><i class="mdi mdi-heart"></i></a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="product-dsc">
-                                                    <p style="line-height:15px">
-                                                        <a href="{{ route('single-product-view',[$product->slug]) }}">{{$product->title}}</a>
-                                                    </p>
-                                                    <div class="ratting">                                                       
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star"></i>
-                                                        <i class="mdi mdi-star-half"></i>
-                                                        <i class="mdi mdi-star-outline"></i>
+                                                    <div class="product-dsc">
+                                                        <p style="line-height:15px">
+                                                            <a href="{{ route('single-product-view',[$product->slug]) }}">{{$product->title}}</a>
+                                                        </p>
+                                                        <div class="ratting">
+                                                            <i class="mdi mdi-star"></i>
+                                                            <i class="mdi mdi-star"></i>
+                                                            <i class="mdi mdi-star"></i>
+                                                            <i class="mdi mdi-star-half"></i>
+                                                            <i class="mdi mdi-star-outline"></i>
+                                                        </div>
+                                                        <span>Rs. {{$product->price}}</span>
+                                                        <p class="short-dsc">{{$product->short_description}}</p>
                                                     </div>
-                                                    <span>Rs. {{$product->price}}</span>
-                                                    <p class="short-dsc">{{$product->short_description}}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                                @else
-                                    <p>No any products to show.</p>
-                                @endif
+                                        </li>
+                                        @endforeach
+                                    @else
+                                        <p>No any products to show.</p>
+                                    @endif
                                 </ul>
                             </div>
 
@@ -147,14 +147,14 @@
                                                     <img src="{{ asset('/uploads/Products/'.$product->image) }}" alt="Product" class="embed-responsive-item img-responsive" style="object-fit:cover" />
                                                 </a>
                                                 <div class="actions-btn">
-                                                    <a href="#"><i class="mdi mdi-cart"></i></a>
+                                                    <a href="{{ route('add-to-cart',[$product->id]) }}"><i class="mdi mdi-cart"></i></a>
                                                     <a href="#" data-toggle="modal" data-target="#quick-view{{$product->id}}"><i class="mdi mdi-eye"></i></a>
-                                                    <a href="#"><i class="mdi mdi-heart"></i></a>
+                                                    <a href="{{ route('add-to-wishlist',[$product->id]) }}"><i class="mdi mdi-heart"></i></a>
                                                 </div>
                                             </div>
                                             <div class="product-dsc">
-                                                <p><a href="#">{{$product->title}}</a></p>
-                                                <div class="ratting">                                                    
+                                                <p><a href="#" data-toggle="modal" data-target="#quick-view{{$product->id}}">{{$product->title}}</a></p>
+                                                <div class="ratting">
                                                     <i class="mdi mdi-star"></i>
                                                     <i class="mdi mdi-star"></i>
                                                     <i class="mdi mdi-star"></i>
@@ -200,17 +200,17 @@
                                                                                         @isset($product->productGalleries)
                                                                                             @foreach($product->productGalleries as $image)
                                                                                                 @if($image->status == 1)
-                                                                                                    <li class="product-small-images">
-                                                                                                        <a data-toggle="tab" href="#sin-2"> 
-                                                                                                            <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" /> 
-                                                                                                        </a>
-                                                                                                    </li>
+                                                                                                <li class="product-small-images">
+                                                                                                    <a data-toggle="tab" href="#sin-2">
+                                                                                                        <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" />
+                                                                                                    </a>
+                                                                                                </li>
                                                                                                 @endif
                                                                                             @endforeach
                                                                                         @endif
                                                                                     </ul>
                                                                                 </div>
-                                                                            </div>						
+                                                                            </div>
                                                                         </div>
                                                                         <div class="col-xs-12 col-sm-7 col-md-8">
                                                                             <div class="quick-right">
@@ -228,7 +228,7 @@
                                                                                     <h5>Rs. {{$product->price}}</h5>
                                                                                     <p>{{$product->short_description}}</p>
                                                                                     <p>{!! $product->long_description !!}</p>
-                                                                                    <div class="all-choose">
+                                                                                    <div class="all-choose" style="text-align:left">
                                                                                         <div class="s-shoose">
                                                                                             <h5>Color</h5>
                                                                                             <div class="color-select clearfix">
@@ -240,7 +240,7 @@
                                                                                         </div>
                                                                                         <div class="s-shoose">
                                                                                             <h5>qty</h5>
-                                                                                            <form action="#" method="POST">
+                                                                                            <form>
                                                                                                 <div class="plus-minus">
                                                                                                     <a class="dec qtybutton">-</a>
                                                                                                     <input type="text" value="02" name="qtybutton" class="plus-minus-box">
@@ -250,16 +250,17 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="list-btn">
-                                                                                        <a href="#">add to cart</a>
-                                                                                        <a href="#">wishlist</a>
+                                                                                        <a href="{{ route('add-to-cart',[$product->id]) }}">add to cart</a>
+                                                                                        <a href="{{ route('add-to-wishlist',[$product->id]) }}">wishlist</a>
                                                                                     </div>
                                                                                     <div class="share-tag clearfix">
                                                                                         <ul class="blog-share floatleft">
-                                                                                            <li><h5>share </h5></li>
+                                                                                            <li>
+                                                                                                <h5>share </h5>
+                                                                                            </li>
                                                                                             <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-linkedin"></i></a></li>
-                                                                                            <li><a href="#"><i class="mdi mdi-vimeo"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-dribbble"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
                                                                                         </ul>
@@ -284,7 +285,7 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="{{ route('our-shop') }}" class="view-more-button" id="load-more-two">View More</a>
+                    <a href="{{ route('our-products') }}" class="view-more-button" id="load-more-two">View More</a>
                 </div>
             </div>
             <!-- new arrival end -->
@@ -304,16 +305,16 @@
                                                     <span>new</span>
                                                 </div>
                                                 <a href="#" data-toggle="modal" data-target="#popularProducts{{$product->id}}">
-                                                    <img src="{{ asset('/uploads/Products/'.$product->image) }}" alt="product" class="embed-responsive-item img-responsive" style="object-fit: cover"/>
+                                                    <img src="{{ asset('/uploads/Products/'.$product->image) }}" alt="product" class="embed-responsive-item img-responsive" style="object-fit: cover" />
                                                 </a>
                                                 <div class="actions-btn">
-                                                    <a href="#"><i class="mdi mdi-cart"></i></a>
+                                                    <a href="{{ route('add-to-cart',[$product->id]) }}"><i class="mdi mdi-cart"></i></a>
                                                     <a href="#" data-toggle="modal" data-target="#popularProducts{{$product->id}}"><i class="mdi mdi-eye"></i></a>
-                                                    <a href="#"><i class="mdi mdi-heart"></i></a>
+                                                    <a href="{{ route('add-to-wishlist',[$product->id]) }}"><i class="mdi mdi-heart"></i></a>
                                                 </div>
                                             </div>
                                             <div class="product-dsc">
-                                                <p><a href="#">{{$product->title}}</a></p>
+                                                <p><a href="#" data-toggle="modal" data-target="#popularProducts{{$product->id}}">{{$product->title}}</a></p>
                                                 <div class="ratting">
                                                     <i class="mdi mdi-star"></i>
                                                     <i class="mdi mdi-star"></i>
@@ -360,17 +361,17 @@
                                                                                         @isset($product->productGalleries)
                                                                                             @foreach($product->productGalleries as $image)
                                                                                                 @if($image->status == 1)
-                                                                                                    <li class="product-small-images">
-                                                                                                        <a data-toggle="tab" href="#sin-2"> 
-                                                                                                            <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" /> 
-                                                                                                        </a>
-                                                                                                    </li>
+                                                                                                <li class="product-small-images">
+                                                                                                    <a data-toggle="tab" href="#sin-2">
+                                                                                                        <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" />
+                                                                                                    </a>
+                                                                                                </li>
                                                                                                 @endif
                                                                                             @endforeach
                                                                                         @endif
                                                                                     </ul>
                                                                                 </div>
-                                                                            </div>						
+                                                                            </div>
                                                                         </div>
                                                                         <div class="col-xs-12 col-sm-7 col-md-8">
                                                                             <div class="quick-right">
@@ -388,7 +389,7 @@
                                                                                     <h5>Rs. {{$product->price}}</h5>
                                                                                     <p>{{$product->short_description}}</p>
                                                                                     <p>{!! $product->long_description !!}</p>
-                                                                                    <div class="all-choose">
+                                                                                    <div class="all-choose" style="text-align:left">
                                                                                         <div class="s-shoose">
                                                                                             <h5>Color</h5>
                                                                                             <div class="color-select clearfix">
@@ -400,7 +401,7 @@
                                                                                         </div>
                                                                                         <div class="s-shoose">
                                                                                             <h5>qty</h5>
-                                                                                            <form action="#" method="POST">
+                                                                                            <form>
                                                                                                 <div class="plus-minus">
                                                                                                     <a class="dec qtybutton">-</a>
                                                                                                     <input type="text" value="02" name="qtybutton" class="plus-minus-box">
@@ -410,16 +411,17 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="list-btn">
-                                                                                        <a href="#">add to cart</a>
-                                                                                        <a href="#">wishlist</a>
+                                                                                        <a href="{{ route('add-to-cart',[$product->id]) }}">add to cart</a>
+                                                                                        <a href="{{ route('add-to-wishlist',[$product->id]) }}">wishlist</a>
                                                                                     </div>
                                                                                     <div class="share-tag clearfix">
                                                                                         <ul class="blog-share floatleft">
-                                                                                            <li><h5>share </h5></li>
+                                                                                            <li>
+                                                                                                <h5>share </h5>
+                                                                                            </li>
                                                                                             <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-linkedin"></i></a></li>
-                                                                                            <li><a href="#"><i class="mdi mdi-vimeo"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-dribbble"></i></a></li>
                                                                                             <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
                                                                                         </ul>
@@ -441,9 +443,9 @@
                                     <p>No any products to show.</p>
                                 @endif
                             </div>
-                        </li>                         
+                        </li>
                     </ul>
-                    <a href="{{ route('our-shop') }}" class="view-more-button" id="load-more-three">View More</a>
+                    <a href="{{ route('our-products') }}" class="view-more-button" id="load-more-three">View More</a>
                 </div>
             </div>
             <!-- popular product end -->
@@ -453,33 +455,33 @@
 <!-- tab-products section end -->
 
 <script>
-  document.addEventListener( 'DOMContentLoaded', function () {
-    new Splide( '#card-slider', {
-      type : 'loop',
-      speed : 3000,
-      interval : 4000,
-      resetProgress : false,
-      autoplay : true,
-      cover : true,
-      perPage : 4,
-      perMove: 1,
-      swipeDistanceThreshold : 700,
-      breakpoints: {
-        1200: {
-          perPage: 3,
-          interval : 3000
-        },
-        991: {
-          perPage: 2,
-          interval : 2000
-        },
-        600: {
-          perPage: 1,
-          interval : 2000
-        }
-      }
-    }).mount();
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+        new Splide('#card-slider', {
+            type: 'loop',
+            speed: 3000,
+            interval: 4000,
+            resetProgress: false,
+            autoplay: true,
+            cover: true,
+            perPage: 4,
+            perMove: 1,
+            swipeDistanceThreshold: 700,
+            breakpoints: {
+                1200: {
+                    perPage: 3,
+                    interval: 3000
+                },
+                991: {
+                    perPage: 2,
+                    interval: 2000
+                },
+                600: {
+                    perPage: 1,
+                    interval: 2000
+                }
+            }
+        }).mount();
+    });
 </script>
 
 

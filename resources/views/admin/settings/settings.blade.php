@@ -28,6 +28,8 @@
           <div class="card-body pt-4">
             <p class="card-description"><b>Company Name</b>: {{ ($setting->company_name) ?? '' }}</p>
             <hr>
+            <p class="card-description"><b>Company Shipping Charge</b>: Rs.{{ ($setting->shippingCharge) ?? '' }}</p>
+            <hr>
             <p class="card-description"><b>Meta Description</b>: {{ ($setting->meta_description) ?? '' }}</p>
           </div>
         </div>

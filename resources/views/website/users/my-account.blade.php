@@ -23,7 +23,7 @@
     <div class="container">
         <div class="message">@include('.inc/message')</div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-9">
                 <div class="padding60">
                     <div class="log-title">
                         <h3><strong>My Account</strong></h3>
@@ -120,10 +120,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-3">
                 <div class="my-right-side">
                     <a href="{{ route('my-wishlist') }}">My wishlists</a>
-                    <a href="{{ route('my-order') }}">Order history</a>
+                    <a href="{{ route('order-complete') }}">Order history</a>
                 </div>
             </div>
         </div>

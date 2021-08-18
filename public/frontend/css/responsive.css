@@ -101,11 +101,14 @@
 
   }
   /* Tablet desktop :768px. */
-  @media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-one .header-top-one .row>div:last-child {padding: 0;}
   .section-padding-top {padding-top: 50px;}
   .section-padding-bottom ,.about-us .main-padding{padding-bottom: 50px;}
   .section-padding{padding:50px 0;}
   .section-title {margin-bottom: 30px;}
+  .mainmenu {margin-left: 40px;}
+  .mainmenu li {width: 25%;}
   .mainmenu ul.magamenu {width: 530px;}
   .mainmenu ul.magamenu li {margin-left: 30px;}
   .single-products.extra-padding-top {
@@ -119,9 +122,8 @@
     margin-left: -180px;
   }
   .middel-top .center input {width: 148px;}
-  .middel-top .left p,.cart-itmes > a.cart-itme-a {
-    font-size: 12px;
-  }
+  .middel-top .left p {font-size: 12px;}
+  .cart-itmes > a.cart-itme-a {font-size: 11px;}
   .quick-view .quick-thumb li {width: 21.78%;}
   .main-view {padding: 20px;}
   /* slider */
@@ -147,9 +149,9 @@
   .main-slider-two .nivo-caption .slider-right {
     width: 380px;
   }
-  .header-two .logo, .header-two .cart-itmes, .header-two .mainmenu a {
-    line-height: 60px;
-  }
+  /* .header-two .logo, .header-two .cart-itmes, .header-two .mainmenu a {
+    line-height: 70px;
+  } */
   .colect-text h5 {
     font-size: 13px;
     line-height: 20px;
@@ -469,6 +471,10 @@
   .splide .single-product .ratting{
     display: none;
   }
+  .order-no ul li {
+    font-size: 13px;
+    width: 45%;
+  }
 }
 
 
@@ -510,4 +516,8 @@
   /* Large Mobile :480px. */
 @media (max-width: 480px) {
   .middel-top.info {display:none;}
+  .order-no ul li {
+    font-size: 13px;
+    width: 100%;
+  }
 }

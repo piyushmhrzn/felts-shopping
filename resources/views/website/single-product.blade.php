@@ -10,7 +10,7 @@
                     <h2>{{$product->title}}</h2>
                     <ul class="text-left">
                         <li><a href="{{ route('index') }}">Home </a></li>
-                        <li><span> // </span><a href="{{ route('our-shop') }}">shop </a></li>
+                        <li><span> // </span><a href="{{ route('our-products') }}">shop </a></li>
                         <li><span> // </span>{{$product->title}}</li>
                     </ul>
                 </div>
@@ -42,17 +42,17 @@
                         </div>
                         <div class="quick-thumb">
                             <ul class="product-slider">
-                            @isset($product->productGalleries)
-                                @foreach($product->productGalleries as $image)
-                                    @if($image->status == 1)
-                                        <li class="product-small-images">
-                                            <a data-toggle="tab" href="#sin-2"> 
-                                                <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" /> 
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            @endif
+                                @isset($product->productGalleries)
+                                    @foreach($product->productGalleries as $image)
+                                        @if($image->status == 1)
+                                            <li class="product-small-images">
+                                                <a data-toggle="tab" href="#sin-2">
+                                                    <img src="{{ asset('/uploads/Products/ProductsGallery/'.$image->image) }}" style="object-fit:cover" alt="small image" />
+                                                </a>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                     <div class="quick-right">
                         <div class="list-text">
                             <h3>{{$product->title}}</h3>
-                            <span>Our Products</span>
+                            <span>Kasthamandap Felts Colllection</span>
                             <div class="ratting floatright">
                                 <p>( 27 Rating )</p>
                                 <i class="mdi mdi-star"></i>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="s-shoose">
                                     <h5>qty</h5>
-                                    <form action="#" method="POST">
+                                    <form>
                                         <div class="plus-minus">
                                             <a class="dec qtybutton">-</a>
                                             <input type="text" value="02" name="qtybutton" class="plus-minus-box">
@@ -94,16 +94,17 @@
                                 </div>
                             </div>
                             <div class="list-btn">
-                                <a href="#">add to cart</a>
-                                <a href="#">wishlist</a>
+                                <a href="{{ route('add-to-cart',[$product->id]) }}">add to cart</a>
+                                <a href="{{ route('add-to-wishlist',[$product->id]) }}">wishlist</a>
                             </div>
                             <div class="share-tag clearfix">
                                 <ul class="blog-share floatleft">
-                                    <li><h5>share </h5></li>
+                                    <li>
+                                        <h5>share </h5>
+                                    </li>
                                     <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
                                     <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="mdi mdi-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="mdi mdi-vimeo"></i></a></li>
+                                    <li><a href="#"><i class="mdi mdi-linkedin"></i></a></li>                                    
                                     <li><a href="#"><i class="mdi mdi-dribbble"></i></a></li>
                                     <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
                                 </ul>
@@ -228,7 +229,33 @@
                                 </div>
                             </div>
                             <div class="custom-input">
-                                <form action="mail.php" method="post">
+                                @if(Auth::user())
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="input-mail">
+                                                <input type="text" name="name" value="{{ Auth::user()->first_name }}" placeholder="Your Name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-mail">
+                                                <input type="text" name="email" value="{{ Auth::user()->email }}" placeholder="Your Email" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="custom-mess">
+                                                <textarea name="message" placeholder="Your Review" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="submit-text">
+                                                <button type="submit">submit review</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                @else
+                                <form>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="input-mail">
@@ -252,6 +279,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -276,24 +304,24 @@
             @isset($products)
                 @foreach($products as $relatedProduct)
                     @if($product->id != $relatedProduct->id)
-                        <div class="col-xs-12 col-sm-6 col-md-3" style="padding-bottom:25px">
-                            <div class="single-product">
-                                <div class="product-img embed-responsive embed-responsive-4by3">
-                                    <a href="{{ route('single-product-view',[$relatedProduct->slug]) }}">
-                                        <img src="{{ asset('/uploads/Products/'.$relatedProduct->image) }}" alt="Product" class="embed-responsive-item img-responsive" style="object-fit:cover"/>
-                                    </a>
-                                    <div class="actions-btn">
-                                        <a href="#"><i class="mdi mdi-cart"></i></a>
-                                        <a href="{{ route('single-product-view',[$relatedProduct->slug]) }}"><i class="mdi mdi-eye"></i></a>
-                                        <a href="#"><i class="mdi mdi-heart"></i></a>
-                                    </div>
-                                </div>
-                                <div class="product-dsc">
-                                    <p><a href="{{ route('single-product-view',[$relatedProduct->slug]) }}">{{$relatedProduct->title}}</a></p>
-                                    <span>Rs. {{$relatedProduct->price}}</span>
+                    <div class="col-xs-12 col-sm-6 col-md-3" style="padding-bottom:25px">
+                        <div class="single-product">
+                            <div class="product-img embed-responsive embed-responsive-4by3">
+                                <a href="{{ route('single-product-view',[$relatedProduct->slug]) }}">
+                                    <img src="{{ asset('/uploads/Products/'.$relatedProduct->image) }}" alt="Product" class="embed-responsive-item img-responsive" style="object-fit:cover" />
+                                </a>
+                                <div class="actions-btn">
+                                    <a href="#"><i class="mdi mdi-cart"></i></a>
+                                    <a href="{{ route('single-product-view',[$relatedProduct->slug]) }}"><i class="mdi mdi-eye"></i></a>
+                                    <a href="#"><i class="mdi mdi-heart"></i></a>
                                 </div>
                             </div>
+                            <div class="product-dsc">
+                                <p><a href="{{ route('single-product-view',[$relatedProduct->slug]) }}">{{$relatedProduct->title}}</a></p>
+                                <span>Rs. {{$relatedProduct->price}}</span>
+                            </div>
                         </div>
+                    </div>
                     @endif
                 @endforeach
             @else

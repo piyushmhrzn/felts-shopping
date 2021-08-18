@@ -31,6 +31,11 @@
                         <label class="bmd-label-floating">Company Name *</label>
                         <input type="text" id="company_name" name="company_name" value="{{ $setting->company_name }}" required="required" class="form-control">
                     </div>
+                    <!--- Company Shipping Charge -->
+                    <div class="form-group mb-4 mt-3">
+                        <label class="bmd-label-floating">Company Shipping Charge *</label>
+                        <input type="text" id="company_shipping_charge" name="company_shipping_charge" value="{{ $setting->shippingCharge }}" required="required" class="form-control">
+                    </div>
                     <!--- Meta Description -->
                     <div class="row mb-4">
                         <div class="col-md-12">
@@ -51,6 +56,11 @@
                     <div class="form-group mb-4 mt-3">
                         <label class="bmd-label-floating">Company Name *</label>
                         <input type="text" id="company_name" name="company_name" required="required" class="form-control">
+                    </div>
+                    <!--- Company Shipping Charge -->
+                    <div class="form-group mb-4 mt-3">
+                        <label class="bmd-label-floating">Company Shipping Charge *</label>
+                        <input type="text" id="company_shipping_charge" name="company_shipping_charge" class="form-control">
                     </div>
                     <!--- Meta Description -->
                     <div class="row mb-4">

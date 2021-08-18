@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="pages-title-text text-center">
-                    <h2>About</h2>
+                    <h2>About Us</h2>
                     <ul class="text-left">
                         <li><a href="{{ route('index') }}">Home </a></li>
-                        <li><span> // </span>About</li>
+                        <li><span> // </span>About Us</li>
                     </ul>
                 </div>
             </div>

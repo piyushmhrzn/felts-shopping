@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="pages-title-text text-center">
-                    <h2>Chcekout</h2>
+                    <h2>Checkout</h2>
                     <ul class="text-left">
                         <li><a href="{{ route('index') }}">Home </a></li>
-                        <li><span> // </span>Chcekout</li>
+                        <li><span> // </span>Checkout</li>
                     </ul>
                 </div>
             </div>
@@ -23,51 +23,48 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <div class="main-input single-cart-form padding60">
+                <div class="main-input single-cart-form padding60 marginBottom30">
                     <div class="log-title">
                         <h3><strong>billing details</strong></h3>
+                        <p class="labelContent">Your default address.</p>
                     </div>
                     <div class="custom-input">
-                        <form action="mail.php" method="post">
-                            <input type="text" name="subject" placeholder="Your name" />
-                            <input type="text" name="subject" placeholder="Enter your here" />
-                            <input type="text" name="subject" placeholder="Phone here" />
-                            <input type="text" name="subject" placeholder="Company name here..." />
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> Country</option>
-                                    <option> Bangladesh </option>
-                                    <option> United States </option>
-                                    <option> United Kingdom </option>
-                                    <option> Canada </option>
-                                    <option> Malaysia </option>
-                                    <option> United Arab Emirates </option>
-                                </select>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Full Name:</label>
+                                    <input type="text" name="name" value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" placeholder="Your Full Name..."  disabled/>
+                                </div>
                             </div>
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> State</option>
-                                    <option> Aberdeen </option>
-                                    <option> Bedfordshire </option>
-                                    <option> Caerphilly </option>
-                                    <option> Denbighshire </option>
-                                    <option> East Ayrshire </option>
-                                    <option> Falkirk </option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Phone Number:</label>
+                                    <input type="text" name="phone" value="{{ Auth::user()->phone }}" placeholder="Your Phone Number..." disabled/>
+                                </div>
                             </div>
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> Town / City</option>
-                                    <option> Aberdeen </option>
-                                    <option> Bedfordshire </option>
-                                    <option> Caerphilly </option>
-                                    <option> Denbighshire </option>
-                                    <option> East Ayrshire </option>
-                                    <option> Falkirk </option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Email Address:</label>
+                                    <input type="email" name="email" value="{{ Auth::user()->email }}" placeholder="Your Email Address..." disabled/>   
+                                </div>
                             </div>
-                            <div class="custom-mess">
-                                <textarea rows="2" placeholder="Your address here" name="message"></textarea>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Country:</label>
+                                    <input type="text" name="country" value="{{ Auth::user()->country }}" placeholder="Your Country..." disabled/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>City:</label>
+                                    <input type="text" name="city" value="{{ Auth::user()->city }}" placeholder="Your City..." disabled/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Address:</label>
+                                    <input type="text" name="address" value="{{ Auth::user()->address }}" placeholder="Your Address..." disabled/>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -77,48 +74,45 @@
                 <div class="main-input single-cart-form padding60">
                     <div class="log-title">
                         <h3><strong>ship to different address</strong></h3>
+                        <p class="labelContent">Fill up the form if you want to ship the product in different address.</p>
                     </div>
                     <div class="custom-input">
-                        <form action="mail.php" method="post">
-                            <input type="text" name="subject" placeholder="Your name" />
-                            <input type="text" name="subject" placeholder="Enter your here" />
-                            <input type="text" name="subject" placeholder="Phone here" />
-                            <input type="text" name="subject" placeholder="Company name here..." />
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> Country</option>
-                                    <option> Bangladesh </option>
-                                    <option> United States </option>
-                                    <option> United Kingdom </option>
-                                    <option> Canada </option>
-                                    <option> Malaysia </option>
-                                    <option> United Arab Emirates </option>
-                                </select>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Full Name:</label>
+                                    <input type="text" name="name" placeholder="Your Full Name..." />
+                                </div>
                             </div>
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> State</option>
-                                    <option> Aberdeen </option>
-                                    <option> Bedfordshire </option>
-                                    <option> Caerphilly </option>
-                                    <option> Denbighshire </option>
-                                    <option> East Ayrshire </option>
-                                    <option> Falkirk </option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Phone Number:</label>
+                                    <input type="text" name="phone" placeholder="Your Phone Number..." />
+                                </div>
                             </div>
-                            <div class="custom-select">
-                                <select class="form-control">
-                                    <option> Town / City</option>
-                                    <option> Aberdeen </option>
-                                    <option> Bedfordshire </option>
-                                    <option> Caerphilly </option>
-                                    <option> Denbighshire </option>
-                                    <option> East Ayrshire </option>
-                                    <option> Falkirk </option>
-                                </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Email Address:</label>
+                                    <input type="email" name="email" placeholder="Your Email Address..." />   
+                                </div>
                             </div>
-                            <div class="custom-mess">
-                                <textarea rows="2" placeholder="Order notes here..." name="message"></textarea>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Country:</label>
+                                    <input type="text" name="country" placeholder="Your Country..." />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>City:</label>
+                                    <input type="text" name="city" placeholder="Your City..." />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Address:</label>
+                                    <input type="text" name="address" placeholder="Your Address..." />
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -127,44 +121,50 @@
         </div>
         <div class="row margin-top">
             <div class="col-xs-12 col-sm-6">
-                <div class="padding60">
+                <div class="padding60 marginBottom30">
                     <div class="log-title">
-                        <h3><strong>Our order</strong></h3>
+                        <h3><strong>order summary</strong></h3>
                     </div>
                     <div class="cart-form-text pay-details table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
+                                    <th>Products</th>
                                     <td>Total</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Men’s White Shirt  x 2</th>
-                                    <td>$86.00</td>
-                                </tr>
-                                <tr>
-                                    <th>Men’s Black Shirt  x 1</th>
-                                    <td>$69.00</td>
-                                </tr>
-                                <tr>
-                                    <th>Cart Subtotal</th>
-                                    <td>$155.00</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping and Handing</th>
-                                    <td>$15.00</td>
-                                </tr>
-                                <tr>
-                                    <th>Vat</th>
-                                    <td>$00.00</td>
-                                </tr>
+                                @if($cartItems != null)
+                                    @foreach($cartItems as $item)
+                                    <tr>
+                                        <th>{{ $item->title }}</th>
+                                        <td>Rs. {{ $item->price }}</td>
+                                    </tr>
+                                    @endforeach
+                                    <tr>
+                                        <th style="color: #0052AD">Cart Subtotal</th>
+                                        <td style="color: #0052AD">Rs.{{ $totalPrice }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shipping and Handing</th>
+                                        <td>Rs.{{ $setting->shippingCharge }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Discount</th>
+                                        <td>Rs. 0</td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td style="text-align: center">
+                                            Your Cart is Empty.
+                                        </td>
+                                    </tr>
+                                @endif                              
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Order total</th>
-                                    <td>$325.00</td>
+                                    <td>Rs.{{ $totalWithShipping }}</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -181,42 +181,66 @@
                             <li class="panel">
                                 <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
                                     <div class="medium-a">
-                                        direct bank transfer
+                                        cash on delivery
                                     </div>
                                 </div>
                                 <div class="panel-collapse collapse in" id="collapse1">
                                     <div class="normal-a">
-                                        <p>Lorem Ipsum is simply in dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+                                        <p>
+                                            <input type="radio" id="cod" name="payment" value="cod" checked>
+                                            &nbsp;&nbsp;<label for="cod">Cash On Delivery</label>
+                                        </p>                                    
                                     </div>
                                 </div>
                             </li>
                             <li class="panel">
                                 <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
                                     <div class="medium-a">
-                                        cheque payment
+                                        fone pay
                                     </div>
                                 </div>
                                 <div class="paypal-dsc panel-collapse collapse" id="collapse2">
                                     <div class="normal-a">
-                                        <p>Lorem Ipsum is simply in dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+                                        <p>
+                                            <input type="radio" id="fonepay" name="payment" value="fonepay">
+                                            &nbsp;&nbsp;<label for="fonepay">Fone Pay</label>
+                                        </p>
                                     </div>
                                 </div>
                             </li>
                             <li class="panel">
                                 <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
                                     <div class="medium-a">
-                                        paypal
+                                        eSewa
                                     </div>
                                 </div>
                                 <div class="paypal-dsc panel-collapse collapse" id="collapse3">
                                     <div class="normal-a">
-                                        <p>Lorem Ipsum is simply in dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+                                        <p>
+                                            <input type="radio" id="eSewa" name="payment" value="eSewa">
+                                            &nbsp;&nbsp;<label for="eSewa">eSewa</label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="panel">
+                                <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">
+                                    <div class="medium-a">
+                                        khalti
+                                    </div>
+                                </div>
+                                <div class="paypal-dsc panel-collapse collapse" id="collapse4">
+                                    <div class="normal-a">
+                                        <p>
+                                            <input type="radio" id="khalti" name="payment" value="khalti">
+                                            &nbsp;&nbsp;<label for="khalti">khalti</label>
+                                        </p>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                         <div class="submit-text">
-                            <a href="#">place order</a>
+                            <a href="{{ route('order-complete') }}" class="place-order">place order</a>
                         </div>
                     </div>
                 </div>

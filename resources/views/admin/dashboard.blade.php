@@ -152,14 +152,16 @@
               <th>Phone</th>
             </thead>
             <tbody>
-              @foreach($users as $key=>$user)
-              <tr>
-                <td>{{ $key+1 }}</td>
-                <td>{{ $user->first_name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone }}</td>
-              </tr>
-              @endforeach
+              @isset($users)
+                @foreach($users as $key=>$user)
+                <tr>
+                  <td>{{ $key+1 }}</td>
+                  <td>{{ $user->first_name }}</td>
+                  <td>{{ $user->email }}</td>
+                  <td>{{ $user->phone }}</td>
+                </tr>
+                @endforeach
+              @endif
             </tbody>
           </table>
         </div>

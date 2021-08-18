@@ -88,10 +88,10 @@
 								<ul class="clearfix right floatright">
 									<li>
 										@if(Auth::user())
-											<a href="{{ route('my-account') }}" class="{{ (request()->routeIs('my-account')) ? 'active' : '' }}" style="text-transform:capitalize"> {{Auth::user()->first_name}}</a>
+											<a href="{{ route('my-account') }}" style="text-transform:capitalize"> {{Auth::user()->first_name}}</a>
 											<ul>
 												<li><a href="{{ route('my-account') }}" class="{{ (request()->routeIs('my-account')) ? 'active' : '' }}">My account</a></li>
-												<li><a href="{{ route('my-cart') }}" class="{{ (request()->routeIs('my-cart')) ? 'active' : '' }}">Cart</a></li>
+												<li><a href="{{ route('my-wishlist') }}" class="{{ (request()->routeIs('my-wishlist')) ? 'active' : '' }}">Whishlist</a></li>
 												<li><a href="{{ route('userLogout') }}">Logout</a></li>
 											</ul>
 										@else
@@ -121,21 +121,13 @@
 							<a href="{{ route('index') }}"><img src="{{ asset('/uploads/Settings/Logo/'.$setting->logo) }}" alt="{{$setting->company_name}}" /></a>
 						</div>
 					</div>
-					<div class="col-sm-10">
+					<div class="col-sm-8">
 						<div class="header-middel">
 							<div class="mainmenu">
 								<nav>
 									<ul>
 										<li><a href="{{ route('index') }}" class="{{ (request()->routeIs('index')) ? 'active' : '' }}">Home</a></li>
-										<li><a href="{{ route('our-shop') }}" class="{{ (request()->routeIs('our-shop')) ? 'active' : '' }}">Shop</a></li>
-										<li><a href="{{ route('product-list-view') }}" class="{{ (request()->routeIs('product-list-view')) ? 'active' : '' }}">Product</a>
-											<ul class="dropdown">
-												<li><a href="{{ route('my-cart') }}" class="{{ (request()->routeIs('my-cart')) ? 'active' : '' }}">Cart</a></li>	
-												<li><a href="{{ route('my-wishlist') }}" class="{{ (request()->routeIs('my-wishlist')) ? 'active' : '' }}">Wishlist</a></li>
-												<li><a href="{{ route('product-list-view') }}" class="{{ (request()->routeIs('product-list-view')) ? 'active' : '' }}">Product List View</a></li>
-												<li><a href="{{ route('product-grid-view') }}" class="{{ (request()->routeIs('product-grid-view')) ? 'active' : '' }}">Product Grid View</a></li>
-											</ul>
-										</li>
+										<li><a href="{{ route('our-products') }}" class="{{ (request()->routeIs('our-products')) ? 'active' : '' }}">Products</a></li>
 										<li><a href="{{ route('about-us') }}" class="{{ (request()->routeIs('about-us')) ? 'active' : '' }}">About</a></li>
 										<li><a href="{{ route('contact-us') }}" class="{{ (request()->routeIs('contact-us')) ? 'active' : '' }}">Contact</a></li>
 									</ul>
@@ -147,22 +139,29 @@
 									<nav id="dropdown">
 										<ul>
 											<li><a href="{{ route('index') }}">Home</a></li>
-											<li><a href="{{ route('our-shop') }}">Shop</a></li>
-											<li><a href="#">Pages</a>
-												<ul>
-													<li><a href="{{ route('my-wishlist') }}">Wishlist</a></li>
-													<li><a href="{{ route('my-checkout') }}">Checkout</a></li>
-													<li><a href="{{ route('my-cart') }}">Cart</a></li>
-													<li><a href="{{ route('product-grid-view') }}">Product Grid View</a></li>
-													<li><a href="{{ route('product-list-view') }}">Product List View</a></li>
-												</ul>
-											</li>
+											<li><a href="{{ route('our-products') }}" class="{{ (request()->routeIs('our-products')) ? 'active' : '' }}">Products</a></li>
 											<li><a href="{{ route('about-us') }}">About</a></li>
 											<li><a href="{{ route('contact-us') }}">Contact</a></li>
 										</ul>
 									</nav>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="col-sm-2">
+						<div class="cart-itmes">
+							<a class="cart-itme-a" href="{{ route('my-cart') }}">
+								<i class="mdi mdi-cart"></i>
+								@if(Auth::user())
+									@if($userCartItems != null)
+										{{$totalItems}} items :  <strong>Rs.{{$totalPrice}}</strong>
+									@else
+										0 items :  <strong>Rs.0</strong>
+									@endif									
+								@else
+									Add to Cart
+								@endif
+							</a>
 						</div>
 					</div>
 				</div>
@@ -194,11 +193,6 @@
 									@foreach($partners as $partner)
 										<a href="#"><img src="{{ asset('/uploads/Partners/'.$partner->image) }}" alt="Brand Logo" /></a>
 									@endforeach
-									<!-- <a href="#"><img src="{{ asset('frontend/img/brand/1.png') }}" alt="Brand Logo" /></a>
-									<a href="#"><img src="{{ asset('frontend/img/brand/2.png') }}" alt="Brand Logo" /></a>
-									<a href="#"><img src="{{ asset('frontend/img/brand/3.png') }}" alt="Brand Logo" /></a>
-									<a href="#"><img src="{{ asset('frontend/img/brand/4.png') }}" alt="Brand Logo" /></a>
-									<a href="#"><img src="{{ asset('frontend/img/brand/5.png') }}" alt="Brand Logo" /></a> -->
 								</div>
 							</div>
 						</div>
@@ -251,7 +245,7 @@
 									<div class="footer-menu">
 										<ul>
 											<li><a href="{{ route('index') }}"><i class="mdi mdi-menu-right"></i>Home</a></li>
-											<li><a href="{{ route('our-shop') }}"><i class="mdi mdi-menu-right"></i>Shop</a></li>
+											<li><a href="{{ route('our-products') }}"><i class="mdi mdi-menu-right"></i>Shop</a></li>
 											<li><a href="{{ route('about-us') }}"><i class="mdi mdi-menu-right"></i>About</a></li>
 											<li><a href="{{ route('contact-us') }}"><i class="mdi mdi-menu-right"></i>Contact</a></li>
 											<li><a href="#"><i class="mdi mdi-menu-right"></i></a>Terms & Conditions</li>

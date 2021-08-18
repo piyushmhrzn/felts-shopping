@@ -28,6 +28,7 @@ class SettingController extends Controller
 
         $setting = new Setting;
         $setting->company_name = $request->input('company_name');
+        $setting->shippingCharge = $request->input('company_shipping_charge');
         $setting->meta_description = $request->input('meta_description');
         $setting->save();
 
@@ -42,6 +43,7 @@ class SettingController extends Controller
 
         $setting = Setting::first();
         $setting->company_name = $request->input('company_name');
+        $setting->shippingCharge = $request->input('company_shipping_charge');
         $setting->meta_description = $request->input('meta_description');
         $setting->save();
 
