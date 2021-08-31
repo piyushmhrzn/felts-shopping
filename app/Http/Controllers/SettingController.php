@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -10,6 +11,10 @@ class SettingController extends Controller
 {
     public function index()
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+
         $setting = Setting::first();
         return view('admin.settings.settings')->with('setting',$setting);
     }

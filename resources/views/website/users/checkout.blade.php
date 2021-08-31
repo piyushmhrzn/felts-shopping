@@ -29,7 +29,7 @@
                         <p class="labelContent">Your default address.</p>
                     </div>
                     <div class="custom-input">
-                        <form>
+                        <form class="billing-address">
                             <div class="row">
                                 <div class="col-md-12">
                                     <label>Full Name:</label>
@@ -77,7 +77,7 @@
                         <p class="labelContent">Fill up the form if you want to ship the product in different address.</p>
                     </div>
                     <div class="custom-input">
-                        <form>
+                        <form class="shipping-address">
                             <div class="row">
                                 <div class="col-md-12">
                                     <label>Full Name:</label>

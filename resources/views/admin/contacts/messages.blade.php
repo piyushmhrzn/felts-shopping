@@ -46,95 +46,75 @@
 
             <!-- Shopping Cart -->
             <div class="tab-pane" id="shopping_cart">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked>
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>Sign contract for "What are conference organizers afraid of?"</td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                      </button>
-                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                        <i class="material-icons">close</i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="">
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                      </button>
-                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                        <i class="material-icons">close</i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="">
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                    </td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                      </button>
-                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                        <i class="material-icons">close</i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked>
-                          <span class="form-check-sign">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                    <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                      </button>
-                      <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                        <i class="material-icons">close</i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                @if(count($contacts)>0)
+                  <thead class="thead">
+                    <tr>
+                      <th scope="col" class="read">Order</th>
+                      <th scope="col" class="title">Customer Name</th>
+                      <th scope="col" class="title">Items</th>
+                      <th scope="col" class="title">Total Price</th>
+                      <th scope="col" class="title">Payment</th>
+                      <th scope="col" class="title">Phone No.</th>
+                      <th scope="col" class="date">Date</th>
+                      <th scope="col" class="action">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="#">
+                          <p class="text-muted font-weight-bold mt-auto mb-auto">
+                            <b class="text-dark">Psych0 Mhrzn</b>
+                          </p>
+                        </a>
+                      </td>
+                      <td>
+                        <p class="text-left">1.Cat Cave,</p>
+                        <p class="text-left">2.Bird House</p>
+                      </td>
+                      <td>
+                        <p class="text-left">Rs.2000</p>
+                      </td>
+                      <td>
+                        <p class="text-left">COD</p>
+                      </td>
+                      <td>
+                        <p class="text-left">9808977556</p>
+                      </td>
+                      <td>
+                        <p class="text-left">16-08-2021</p>
+                      </td>
+                      <td>
+                        <a href="#" type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm view">
+                            <i class="material-icons">visibility</i>
+                          </a>
+                          <a href="#" data-toggle="modal" type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
+                            <i class="material-icons">clear</i>
+                          </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                @else
+                  <tbody>
+                    <tr>
+                      <td><p class="text-center">No any Customer Order</p></td>
+                    </tr>
+                  </tbody>                 
+                @endif
+                </table>
+              </div><!-- table-responsive -->
             </div>
 
             <!-- Contact Form Messages -->

@@ -15,6 +15,10 @@ class ContactController extends Controller
     //Notification Page
     public function notification()
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+        
         $contacts = Contact::orderBy('created_at','desc')->paginate(20);
         $subscribers = Subscriber::orderBy('created_at','desc')->paginate(20);
         return view('admin.contacts.messages')
@@ -25,8 +29,13 @@ class ContactController extends Controller
     //Contact Messages
     public function viewContactMessage($id)
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+
         $contactMessage = Contact::find($id);
         $contactMessage->seen = true;
+        $contactMessage->status = 0;
         $contactMessage->save();
         return view('admin.contacts.messages.viewContactMessage')->with('contact',$contactMessage);
     }

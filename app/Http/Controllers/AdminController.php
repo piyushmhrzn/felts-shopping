@@ -6,6 +6,7 @@ use App\Mail\ChangeEmail;
 use App\Mail\ChangePassword;
 use App\Mail\ForgotPassword;
 use App\Mail\NewAdmin;
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\User;
 use Carbon\Carbon;
@@ -85,6 +86,10 @@ class AdminController extends Controller
     //------------------------------------------------------------
     public function index()
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+
         $users = User::where('type',2)->get();
         $user = User::where('type',2)->orderBy('created_at', 'desc')->first();        
         $products = Product::get();
@@ -99,6 +104,10 @@ class AdminController extends Controller
     //------------------------------------------------------------
     public function adminProfile()
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+
         return view('admin.adminProfile.profile');
     }
 
@@ -229,6 +238,10 @@ class AdminController extends Controller
     //------------------------------------------------------------
     public function superAdmin()
     {
+        //Notifications
+        $notifications = count(Contact::where('status',1)->get());
+        session()->put('notifications',$notifications);
+        
         if(Auth::user()->type == 0){
             $admins = User::get();
             return view('admin.superAdmin.superAdmin')->with('admins',$admins);

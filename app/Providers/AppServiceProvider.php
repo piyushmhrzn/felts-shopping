@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Cart;
+use App\Models\Contact;
 use App\Models\Partner;
 use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
@@ -38,6 +39,10 @@ class AppServiceProvider extends ServiceProvider
         //Partners
         $partners = Partner::where('status',1)->get();
         View::share('partners',$partners);
+
+        //Contact Form Messages
+        $messages = Contact::where('status',1)->get();      
+        View::share('messages',$messages);
 
         //compose all the views....
         view()->composer('*', function ($view) 
